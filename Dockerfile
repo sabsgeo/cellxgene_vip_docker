@@ -1,4 +1,4 @@
-FROM continuumio/anaconda3:2023.03-1
+FROM continuumio/anaconda3:2020.07
 # /opt/conda
 WORKDIR /cellxgene_vip
 RUN git clone https://github.com/interactivereport/cellxgene_VIP.git
