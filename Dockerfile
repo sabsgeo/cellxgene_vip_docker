@@ -1,7 +1,7 @@
 FROM continuumio/anaconda3:2020.07
 # /opt/conda
 WORKDIR /cellxgene_vip
-RUN ls
+RUN pwd
 RUN git clone https://github.com/sabsgeo/cellxgene_VIP.git
 RUN apt-get --allow-releaseinfo-change update && apt-get install -y build-essential \
     jq \
