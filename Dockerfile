@@ -8,7 +8,7 @@ RUN apt-get --allow-releaseinfo-change update && apt-get install -y build-essent
     Node.js \
     npm \
     cpio
-RUN cd cellxgene_VIP && ./config.sh
+# RUN cd cellxgene_VIP && ./config.sh
 # RUN conda config --set channel_priority flexible
 # RUN conda env create -n cellxgene_vip -f cellxgene_vip.yml 
 # RUN conda activate
