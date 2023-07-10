@@ -5,7 +5,8 @@ RUN git clone https://github.com/interactivereport/cellxgene_VIP.git
 RUN apt-get --allow-releaseinfo-change update && apt-get install -y build-essential \
     jq \
     Node.js \
-    npm
+    npm \
+    cpio
 RUN cd cellxgene_VIP && ./config.sh
 # RUN conda config --set channel_priority flexible
 # RUN conda env create -n cellxgene_vip -f cellxgene_vip.yml 
