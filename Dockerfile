@@ -1,4 +1,4 @@
-FROM continuumio/anaconda3:2020.07
+FROM python:3.8.17-bookworm
 # /opt/conda
 WORKDIR /cellxgene_vip
 RUN echo "Test1"
