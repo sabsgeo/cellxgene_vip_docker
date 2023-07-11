@@ -9,7 +9,7 @@ ENV LANG=C.UTF-8
 
 RUN apt-get update && \
     apt-get install -y build-essential && \
-    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    wget --output-document - https://deb.nodesource.com/setup_18.x | bash - && \
     echo "Installing nodejs" && \
     apt-get update && \
     apt-get install -y nodejs
