@@ -1,14 +1,17 @@
-FROM python:3.8.17-bookworm
-# /opt/conda
+FROM ubuntu:bionic
+
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+
+RUN apt-get update && \
+    apt-get install -y build-essential libxml2-dev python3-dev python3-pip zlib1g-dev jq curl cpio python3-requests python3-aiohttp && \
+    python3 -m pip install --upgrade pip 
+
+RUN curl -sL https://deb.nodesource.com/setup | sudo bash - && \
+    apt-get install -yq nodejs build-essential
+
+# fix npm - not the latest version installed by apt-get
+RUN npm install -g npm
+
 WORKDIR /cellxgene_vip
-RUN echo "Test2"
-RUN git clone https://github.com/sabsgeo/cellxgene_VIP.git
-RUN apt-get --allow-releaseinfo-change update && apt-get install -y build-essential \
-    jq \
-    Node.js \
-    npm \
-    cpio
-# RUN cd cellxgene_VIP && ./config.sh
-# RUN conda config --set channel_priority flexible
-# RUN conda env create -n cellxgene_vip -f cellxgene_vip.yml 
-# RUN conda activate
+RUN git clone https://github.com/interactivereport/cellxgene_VIP.git && cd cellxgene_VIP && ./config.sh
