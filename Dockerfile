@@ -4,7 +4,7 @@ ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
 RUN apt-get update && \
-    apt-get install -y build-essential libxml2-dev build-essential openssl git wget libssl-dev python3-dev python3-pip zlib1g-dev jq curl gcc g++ make cpio python3-requests python3-aiohttp && \
+    apt-get install -y build-essential libxml2-dev build-essential openssl git wget libssl-dev python3-dev python-is-python3 python3-pip zlib1g-dev jq curl gcc g++ make cpio python3-requests python3-aiohttp && \
     python3 -m pip install --upgrade pip 
 
 RUN wget --output-document - https://deb.nodesource.com/setup_16.x | bash - && \
