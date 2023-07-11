@@ -1,32 +1,20 @@
-FROM ubuntu:18.04
+FROM ubuntu:bionic
 
-# Update package lists and install necessary dependencies
-RUN apt-get update && apt-get install -y curl
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
 
-# Install Node.js
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
-RUN apt-get install -y nodejs
+RUN apt-get update && \
+    apt-get install -y build-essential libxml2-dev build-essential openssl libssl-dev python3-dev python3-pip zlib1g-dev jq curl gcc g++ make cpio python3-requests python3-aiohttp && \
+    python3 -m pip install --upgrade pip 
 
-RUN node --version
-RUN npm --version
+RUN apt-get update && \
+    apt-get install -y build-essential wget && \
+    wget --output-document - https://deb.nodesource.com/setup_16.x | bash - && \
+    echo "Installing nodejs" && \
+    apt-get update && \
+    apt-get install -y nodejs
 
-# FROM ubuntu:bionic
+RUN npm install -g npm
 
-# ENV LC_ALL=C.UTF-8
-# ENV LANG=C.UTF-8
-
-# # RUN apt-get update && \
-# #     apt-get install -y build-essential libxml2-dev build-essential openssl libssl-dev python3-dev python3-pip zlib1g-dev jq curl gcc g++ make cpio python3-requests python3-aiohttp && \
-# #     python3 -m pip install --upgrade pip 
-
-# RUN apt-get update && \
-#     apt-get install -y build-essential wget && \
-#     wget --output-document - https://deb.nodesource.com/setup_18.x | bash - && \
-#     echo "Installing nodejs" && \
-#     apt-get update && \
-#     apt-get install -y nodejs
-
-# RUN npm install -g npm
-
-# WORKDIR /cellxgene_vip
-# RUN git clone https://github.com/interactivereport/cellxgene_VIP.git && cd cellxgene_VIP && ./config.sh
+WORKDIR /cellxgene_vip
+RUN git clone https://github.com/interactivereport/cellxgene_VIP.git && cd cellxgene_VIP && ./config.sh
