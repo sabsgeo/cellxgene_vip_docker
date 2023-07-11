@@ -7,8 +7,8 @@ RUN apt-get update && \
     apt-get install -y build-essential libxml2-dev build-essential openssl libssl-dev python3-dev python3-pip zlib1g-dev jq curl gcc g++ make cpio python3-requests python3-aiohttp && \
     python3 -m pip install --upgrade pip 
 
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - 
-RUN apt-get install -y libc6-dev nodejs
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - &&\
+apt-get install -y nodejs
 
 RUN npm install -g npm
 
