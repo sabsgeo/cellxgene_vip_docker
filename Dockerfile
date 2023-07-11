@@ -7,7 +7,7 @@ RUN apt-get update && \
     apt-get install -y build-essential libxml2-dev python3-dev nodejs python3-pip zlib1g-dev jq curl gcc g++ make cpio python3-requests python3-aiohttp && \
     python3 -m pip install --upgrade pip 
 
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && 
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
 
 RUN npm install -g npm
 
