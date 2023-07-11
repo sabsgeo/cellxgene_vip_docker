@@ -3,11 +3,14 @@ FROM ubuntu:bionic
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
-RUN apt-get update && \
-    apt-get install -y build-essential libxml2-dev build-essential openssl libssl-dev python3-dev python3-pip zlib1g-dev jq curl gcc g++ make cpio python3-requests python3-aiohttp && \
-    python3 -m pip install --upgrade pip 
+# RUN apt-get update && \
+#     apt-get install -y build-essential libxml2-dev build-essential openssl libssl-dev python3-dev python3-pip zlib1g-dev jq curl gcc g++ make cpio python3-requests python3-aiohttp && \
+#     python3 -m pip install --upgrade pip 
 
-RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - &&\
+RUN apt-get update && \
+apt-get install -y curl \
+curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && \
+apt-get update && \
 apt-get install -y nodejs
 
 RUN npm install -g npm
