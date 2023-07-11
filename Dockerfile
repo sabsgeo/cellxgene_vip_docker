@@ -8,10 +8,11 @@ ENV LANG=C.UTF-8
 #     python3 -m pip install --upgrade pip 
 
 RUN apt-get update && \
-apt-get install -y curl \
-curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && \
-apt-get update && \
-apt-get install -y nodejs
+    apt-get install -y curl \
+    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    echo "Installing nodejs" && \
+    apt-get update && \
+    apt-get install -y nodejs
 
 RUN npm install -g npm
 
