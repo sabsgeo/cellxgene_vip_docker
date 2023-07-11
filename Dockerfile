@@ -8,6 +8,7 @@ RUN apt-get update && \
     python3 -m pip install --upgrade pip 
 
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - 
+RUN apt-get install -y nodejs
 
 RUN npm install -g npm
 
