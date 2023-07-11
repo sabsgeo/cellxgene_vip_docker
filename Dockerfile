@@ -8,7 +8,7 @@ ENV LANG=C.UTF-8
 #     python3 -m pip install --upgrade pip 
 
 RUN apt-get update && \
-    apt-get install -y curl build-essential \
+    apt-get install -y curl build-essential && \
     curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
     echo "Installing nodejs" && \
     apt-get update && \
